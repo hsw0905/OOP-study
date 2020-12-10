@@ -30,4 +30,11 @@ public class WaterSpray {
         this.remainingWaterInMl -= Math.min(this.remainingWaterInMl, 5);
     }
 
+    public void sprayTo(FlowerPot pot){
+        int amountToSpray = Math.min(this.remainingWaterInMl, 5);
+        pot.addWater(amountToSpray);
+
+        this.remainingWaterInMl -= amountToSpray;
+    }
+
 }

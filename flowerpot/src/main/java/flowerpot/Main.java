@@ -7,11 +7,9 @@ public class Main {
         waterSpray.fillUp();
 
         FlowerPot pot = new FlowerPot(10);
+
         for (int i = 0; i < 2; ++i) {
-            int water = waterSpray.getRemainingWaterInMl();
-            waterSpray.spray();
-            water -= waterSpray.getRemainingWaterInMl();
-            pot.addWater(water);
+            waterSpray.sprayTo(pot);
         }
 
         pot.liveAnotherDay();

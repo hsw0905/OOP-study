@@ -9,7 +9,8 @@ public class Main {
         FlowerPot pot = new FlowerPot(10);
 
         for (int i = 0; i < 2; ++i) {
-            waterSpray.sprayTo(pot);
+//            waterSpray.sprayTo(pot);
+            pot.addWater(waterSpray);
         }
 
         pot.liveAnotherDay();

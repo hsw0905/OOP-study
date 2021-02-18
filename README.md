@@ -4,7 +4,9 @@
 
 ### 참고
 
+- 출처 : pocu 아카데미 Java 강의, 파이썬 디자인 패턴 책(체탄 기리다)을 보고 정리한 내용입니다
 - [정적 메서드](./StaticMethod.md)
+- [디자인 패턴](./DesignPattern.md)
 
 ### 객체지향프로그래밍
 
@@ -170,3 +172,29 @@ classroom.setScore(12, 90);
 - 실수를 저지르기 어려운 코드 만들기
 - 문제를 해결하는 코드 만들기
 - 문제가 생기면 디버깅하기
+
+### is-a 관계
+
+- 부분집합 관계 (student는 person이다)
+- 자식을 부모에 대입하는 것은 안전
+- 부모를 자식에 대입하는 것은 허용 안함(컴파일 에러)
+
+```java
+Student student = new Student("leon", "kim");
+Person person = (Person) student; // 허용
+//why
+//사실 캐스팅이 암시적으로 들어갔다 (is - a 관계라서)
+//자식의 메소드는 사용 불가능(컴파일 에러)
+
+Person person = new Person("harry", "hwang");
+Student student = person; //컴파일 에러
+
+Person person = new Student("leon", "kim");
+Teacher teacher = (Teacher) person; // 컴파일은 되지만 실행중 exception error
+
+//결론 : 컴파일러는 상속 구조상 말이 안되면 오류 발생시킴
+```
+
+### has-a 관계
+
+- 컴포지션 관계 (Person은 bone, blood..를 갖고 있다)
